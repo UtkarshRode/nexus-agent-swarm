@@ -1,4 +1,7 @@
-# 🤖 NexusSwarm: Autonomous Multi-Agent Research & Code Analysis Swarm
+# 🤖 Axiom: Autonomous Multi-Agent Code Execution and Verification Engine
+
+[![Live Demo](https://img.shields.io/badge/Live_Demo-Vercel-black.svg?style=for-the-badge&logo=vercel)](https://axiom-agent-engine.vercel.app)
+[![Backend API](https://img.shields.io/badge/Backend_API-Render-46E3B7.svg?style=for-the-badge&logo=render)](https://nexus-agent-swarm.onrender.com)
 
 [![Python](https://img.shields.io/badge/Python-3.10+-blue.svg)](https://www.python.org/)
 [![FastAPI](https://img.shields.io/badge/FastAPI-0.111.0-009688.svg)](https://fastapi.tiangolo.com/)
@@ -7,7 +10,11 @@
 [![SSE](https://img.shields.io/badge/SSE-Real--Time_Stream-orange.svg)](https://developer.mozilla.org/)
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
+> 🌐 **Live Application:** [https://axiom-agent-engine.vercel.app](https://axiom-agent-engine.vercel.app)  
+> 📡 **API Service:** [https://nexus-agent-swarm.onrender.com](https://nexus-agent-swarm.onrender.com)
+
 > A stateful, production-grade **Autonomous Multi-Agent Orchestration Swarm** engineered with a **Supervisor-Worker-Critic** hierarchy, tool-calling ReAct loops, sandboxed Python code execution, and self-correcting feedback mechanisms.
+
 
 ---
 
