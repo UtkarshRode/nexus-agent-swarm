@@ -1,4 +1,4 @@
-import React from 'react';
+﻿import React from 'react';
 import { Navbar } from './components/Navbar';
 import { GoalInput } from './components/GoalInput';
 import { AgentDAGView } from './components/AgentDAGView';
@@ -29,7 +29,7 @@ export function App() {
       <ApprovalModal />
 
       <footer className="border-t border-slate-900 py-6 text-center text-xs text-slate-500">
-        <p>NexusSwarm: Autonomous Multi-Agent Research & Code Swarm • SDE Placement Portfolio Project</p>
+        <p>Axiom: Autonomous Multi-Agent Code Execution and Verification Engine • SDE Portfolio Project</p>
       </footer>
     </div>
   );

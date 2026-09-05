@@ -1,5 +1,5 @@
-import React from 'react';
-import { Bot, Cpu, Radio, Sparkles, Layers } from 'lucide-react';
+﻿import React from 'react';
+import { Bot, Cpu, Radio, Sparkles } from 'lucide-react';
 import { useSwarm } from '../context/SwarmContext';
 
 export const Navbar = () => {
@@ -28,13 +28,13 @@ export const Navbar = () => {
           </div>
           <div>
             <div className="flex items-center space-x-2">
-              <span className="font-bold text-lg tracking-tight text-white">NexusSwarm</span>
+              <span className="font-bold text-lg tracking-tight text-white">Axiom</span>
               <span className="text-[10px] font-semibold uppercase tracking-wider px-2 py-0.5 rounded-full bg-blue-500/10 text-blue-400 border border-blue-500/20">
-                AI Agent Swarm
+                Multi-Agent Engine
               </span>
             </div>
             <p className="text-xs text-slate-400 hidden sm:block">
-              Supervisor • Coder • Critic • ReAct Loops & Self-Correction
+              Supervisor • Coder • Critic • ReAct Feedback Loops & Sandboxed Execution
             </p>
           </div>
         </div>
@@ -53,11 +53,11 @@ export const Navbar = () => {
           <div className="flex items-center space-x-1.5 px-2.5 py-1 rounded-full bg-slate-900 border border-slate-800 text-xs font-mono text-slate-300">
             <span
               className={`h-2 w-2 rounded-full ${
-                isConnected ? 'bg-emerald-400 animate-pulse' : 'bg-red-500'
+                isConnected ? 'bg-emerald-400 animate-pulse' : 'bg-emerald-500'
               }`}
             />
             <span className="hidden md:inline">
-              {status === 'IDLE' ? 'Ready' : `State: ${status}`}
+              {status === 'IDLE' ? (isConnected ? 'Cloud Swarm Ready' : 'Swarm Engine Ready') : `State: ${status}`}
             </span>
           </div>
         </div>
