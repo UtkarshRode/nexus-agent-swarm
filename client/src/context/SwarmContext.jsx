@@ -1,4 +1,4 @@
-﻿import React, { createContext, useContext, useEffect, useState, useRef } from 'react';
+import React, { createContext, useContext, useEffect, useState, useRef } from 'react';
 import axios from 'axios';
 import { runClientSimulation } from '../services/simulation';
 
@@ -133,20 +133,24 @@ export const SwarmProvider = ({ children }) => {
   };
 
   // Handle human-in-the-loop approval
-  const resolveApproval = async (approvalId, approved) => {
-    if (approvalResolverRef.current) {
-      approvalResolverRef.current(approved);
-      approvalResolverRef.current = null;
-    }
-    try {
-      await axios.post('/api/swarm/approve', {
-        approval_id: approvalId,
-        approved,
-      });
-    } catch (err) {
-      // Handled gracefully in client simulation
-    }
+  const resolveApproval = (approvalId, approved) => {
+    // 1. Immediately dismiss modal so UI is instantaneous
     setPendingApproval(null);
+
+    // 2. Resolve client simulation promise immediately
+    if (approvalResolverRef.current) {
+      const resolve = approvalResolverRef.current;
+      approvalResolverRef.current = null;
+      resolve(approved);
+    }
+
+    // 3. Fire non-blocking request to backend in background with short timeout
+    axios.post('/api/swarm/approve', {
+      approval_id: approvalId,
+      approved,
+    }, { timeout: 2000 }).catch(() => {
+      // Ignored safely if backend is asleep
+    });
   };
 
   return (

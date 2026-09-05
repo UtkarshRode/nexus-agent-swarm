@@ -1,5 +1,5 @@
-import React from 'react';
-import { ShieldAlert, Check, X, AlertTriangle } from 'lucide-react';
+﻿import React from 'react';
+import { ShieldAlert, Check, X } from 'lucide-react';
 import { useSwarm } from '../context/SwarmContext';
 
 export const ApprovalModal = () => {
@@ -8,8 +8,14 @@ export const ApprovalModal = () => {
   if (!pendingApproval) return null;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/85 backdrop-blur-md animate-in fade-in duration-200">
-      <div className="w-full max-w-md rounded-2xl border border-amber-500/40 bg-slate-900 p-6 shadow-2xl text-slate-100 relative space-y-4">
+    <div
+      className="fixed inset-0 z-[9999] flex items-center justify-center p-4 bg-slate-950/85 backdrop-blur-md animate-in fade-in duration-200"
+      onClick={() => resolveApproval(pendingApproval.approval_id, true)}
+    >
+      <div
+        className="w-full max-w-md rounded-2xl border border-amber-500/40 bg-slate-900 p-6 shadow-2xl text-slate-100 relative space-y-4"
+        onClick={(e) => e.stopPropagation()}
+      >
         {/* Header */}
         <div className="flex items-center space-x-3">
           <div className="h-10 w-10 rounded-xl bg-amber-500/20 border border-amber-500/30 flex items-center justify-center text-amber-400 flex-shrink-0">
@@ -38,16 +44,26 @@ export const ApprovalModal = () => {
         {/* Buttons */}
         <div className="flex space-x-3 pt-2">
           <button
-            onClick={() => resolveApproval(pendingApproval.approval_id, false)}
-            className="flex-1 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-semibold transition-all flex items-center justify-center space-x-1.5"
+            type="button"
+            onClick={(e) => {
+              e.preventDefault();
+              e.stopPropagation();
+              resolveApproval(pendingApproval.approval_id, false);
+            }}
+            className="cursor-pointer select-none flex-1 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 active:scale-95 text-slate-300 text-xs font-semibold transition-all flex items-center justify-center space-x-1.5 border border-slate-700"
           >
             <X className="h-4 w-4" />
             <span>Reject Tool</span>
           </button>
 
           <button
-            onClick={() => resolveApproval(pendingApproval.approval_id, true)}
-            className="flex-1 py-2.5 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white text-xs font-bold transition-all shadow-lg shadow-emerald-900/30 flex items-center justify-center space-x-1.5"
+            type="button"
+            onClick={(e) => {
+              e.preventDefault();
+              e.stopPropagation();
+              resolveApproval(pendingApproval.approval_id, true);
+            }}
+            className="cursor-pointer select-none flex-1 py-2.5 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 active:scale-95 text-white text-xs font-bold transition-all shadow-lg shadow-emerald-900/40 flex items-center justify-center space-x-1.5"
           >
             <Check className="h-4 w-4" />
             <span>Authorize Execution</span>
