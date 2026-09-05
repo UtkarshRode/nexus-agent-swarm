@@ -1,0 +1,10 @@
+{
+  "name": "nexus-agent-swarm",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "postinstall": "npm --prefix client install",
+    "build": "npm --prefix client run build",
+    "client": "npm --prefix client run dev"
+  }
+}
